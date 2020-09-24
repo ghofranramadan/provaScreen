@@ -28,7 +28,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
-  dio: ^3.0.10
   font_awesome_flutter: ^8.8.1
   http: ^0.12.2
 
@@ -63,17 +62,38 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+   - family: Roboto
+     fonts:
+     - asset: fonts/Roboto-Regular.ttf
+       weight: 400
+     - asset: fonts/Roboto-Bold.ttf
+       weight: 700  
+   - family: Montserrat
+     fonts:
+     - asset: fonts/Montserrat-Bold.ttf
+       weight: 700
+     - asset: fonts/Montserrat-Regular.ttf
+       weight: 400
+     - asset: fonts/Montserrat-Light.ttf
+       weight: 300
+     - asset: fonts/Montserrat-Light.ttf
+       weight: 500 
+   - family: Roboto Condensed
+     fonts:
+     - asset: fonts/RobotoCondensed-Light.ttf
+       weight: 400        
+
+    # - family: Schyler
+    #   fonts:
+    #     - asset: fonts/Schyler-Regular.ttf
+    #     - asset: fonts/Schyler-Italic.ttf
+    #       style: italic
+    # - family: Trajan Pro
+    #   fonts:
+    #     - asset: fonts/TrajanPro.ttf
+    #     - asset: fonts/TrajanPro_Bold.ttf
+    #       weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

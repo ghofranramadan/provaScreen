@@ -1,134 +1,136 @@
+import 'dart:convert';
+import 'package:prova/models/product.dart';
+import 'package:prova/models/branches_of_brand.dart';
+
+List<Brand> brandFromJson(String str) =>
+    List<Brand>.from(json.decode(str).map((x) => Brand.fromJson(x)));
+
 class Brand {
-  final int id;
-  final bool isActive;
-  final String firebaseId;
-  final int followerCount;
-  final bool hasMale;
-  final bool hasKid;
-  final bool hasFemale;
-  final String name;
-  final int noSalesProva;
-  final int noSalesOut;
-  final int salesProva;
-  final int salesOut;
-  final bool isInstore;
-  final bool isShipping;
-  final String profilePicture;
-  final int ratingAverage;
-  final int noRates;
-  final int noFollowers;
-  final String description;
-  final String adminNotes;
-  final String facebook;
-  final String instagram;
-  final String twitter;
-  final String whatsapp;
-  final String snapchat;
-  final String youtube;
-  final String messenger;
-  final String telegram;
-  final String createdAt;
-  final String updatedAt;
-  final List<Product> products;
-  final List <Branches>branches;
+  int id;
+  bool isActive;
+  String firebaseId;
+  int followersCount;
+  bool hasMale;
+  bool hasKid;
+  bool hasFemale;
+  String name;
+  int noSalesProva;
+  int noSalesOut;
+  int salesProva;
+  int salesOut;
+  bool isInstore;
+  bool isShipping;
+  String profilePicture;
+  int ratingAverage;
+  int noRates;
+  int noFollowers;
+  String description;
+  AdminNotes adminNotes;
+  String facebook;
+  dynamic instagram;
+  dynamic twitter;
+  String whatsapp;
+  dynamic snapchat;
+  dynamic youtube;
+  String messenger;
+  dynamic telegram;
+  DateTime createdAt;
+  DateTime updatedAt;
+  List<Product> products;
+  List<Branch> branches;
 
-  Brand(
-      {this.id,
-      this.isActive,
-      this.firebaseId,
-      this.followerCount,
-      this.hasMale,
-      this.hasKid,
-      this.hasFemale,
-      this.name,
-      this.noSalesProva,
-      this.noSalesOut,
-      this.salesProva,
-      this.salesOut,
-      this.isInstore,
-      this.isShipping,
-      this.profilePicture,
-      this.ratingAverage,
-      this.noRates,
-      this.noFollowers,
-      this.description,
-      this.adminNotes,
-      this.facebook,
-      this.instagram,
-      this.twitter,
-      this.whatsapp,
-      this.snapchat,
-      this.youtube,
-      this.messenger,
-      this.telegram,
-      this.createdAt,
-      this.updatedAt,
-      this.products,
-      this.branches});
+  Brand({
+    this.id,
+    this.isActive,
+    this.firebaseId,
+    this.followersCount,
+    this.hasMale,
+    this.hasKid,
+    this.hasFemale,
+    this.name,
+    this.noSalesProva,
+    this.noSalesOut,
+    this.salesProva,
+    this.salesOut,
+    this.isInstore,
+    this.isShipping,
+    this.profilePicture,
+    this.ratingAverage,
+    this.noRates,
+    this.noFollowers,
+    this.description,
+    this.adminNotes,
+    this.facebook,
+    this.instagram,
+    this.twitter,
+    this.whatsapp,
+    this.snapchat,
+    this.youtube,
+    this.messenger,
+    this.telegram,
+    this.createdAt,
+    this.updatedAt,
+    this.products,
+    this.branches,
+  });
+
+  factory Brand.fromJson(Map<String, dynamic> json) => Brand(
+        id: json["id"],
+        isActive: json["is_active"],
+        firebaseId: json["firebase_id"],
+        followersCount: json["followers_count"],
+        hasMale: json["has_male"],
+        hasKid: json["has_kid"],
+        hasFemale: json["has_female"],
+        name: json["name"],
+        noSalesProva: json["no_sales_prova"],
+        noSalesOut: json["no_sales_out"],
+        salesProva: json["sales_prova"],
+        salesOut: json["sales_out"],
+        isInstore: json["is_instore"],
+        isShipping: json["is_shipping"],
+        profilePicture: json["profile_picture"],
+        ratingAverage: json["rating_average"],
+        noRates: json["no_rates"],
+        noFollowers: json["no_followers"],
+        description: json["description"],
+        adminNotes: adminNotesValues.map[json["admin_notes"]],
+        facebook: json["facebook"] == null ? null : json["facebook"],
+        instagram: json["instagram"],
+        twitter: json["twitter"],
+        whatsapp: json["whatsapp"] == null ? null : json["whatsapp"],
+        snapchat: json["snapchat"],
+        youtube: json["youtube"],
+        messenger: json["messenger"] == null ? null : json["messenger"],
+        telegram: json["telegram"],
+        createdAt: DateTime.parse(json["created_at"]),
+        updatedAt: DateTime.parse(json["updated_at"]),
+        products: List<Product>.from(
+            json["products"].map((x) => Product.fromJson(x))),
+        branches:
+            List<Branch>.from(json["branches"].map((x) => Branch.fromJson(x))),
+      );
 }
 
-class Product {
-  final int id;
-  final int categoryId;
-  final int subCategoryId;
-  final String description;
-  final int discountPrice;
-  final int buyingPrice;
-  final int price;
-  final int gender;
-  final int noStock;
-  final int noLikes;
-  final String name;
-  final int ratingAverage;
-  final int noRates;
-  final int storeId;
-  final int storeBranchId;
-  final int noViews;
-  final bool isReadOnly;
-  final List<Images> images;
-  final List<Stock> stock;
-
-  Product(
-      {this.id,
-      this.categoryId,
-      this.subCategoryId,
-      this.description,
-      this.discountPrice,
-      this.buyingPrice,
-      this.price,
-      this.gender,
-      this.noStock,
-      this.noLikes,
-      this.name,
-      this.ratingAverage,
-      this.noRates,
-      this.storeId,
-      this.storeBranchId,
-      this.noViews,
-      this.isReadOnly,
-      this.images,
-      this.stock});
+enum AdminNotes {
+  MERGED_FROM_FIREBASE_AT_20200701204434,
+  MERGED_FROM_FIREBASE_AT_20200701204435
 }
+final adminNotesValues = EnumValues({
+  "Merged From Firebase at: 2020-07-01 20:44:34":
+      AdminNotes.MERGED_FROM_FIREBASE_AT_20200701204434,
+  "Merged From Firebase at: 2020-07-01 20:44:35":
+      AdminNotes.MERGED_FROM_FIREBASE_AT_20200701204435
+});
 
-class Images {
-  final int id;
-  final String url;
-  Images({this.id, this.url});
+class EnumValues<T> {
+  Map<String, T> map;
+  Map<T, String> reverseMap;
+  EnumValues(this.map);
+  Map<T, String> get reverse {
+    if (reverseMap == null) {
+      reverseMap = map.map((k, v) => new MapEntry(v, k));
+    }
+    return reverseMap;
+  }
 }
-
-class Stock {
-  final int id;
-  final int productId;
-  final String color;
-  final List sizes;
-  final String createdAt;
-  final String updatedAt;
-  Stock(
-      {this.id,
-      this.productId,
-      this.color,
-      this.sizes,
-      this.createdAt,
-      this.updatedAt});
-}
-class  Branches{} 
