@@ -10,9 +10,9 @@ class BrandDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:EdgeInsets.only(
-      top: 14,
-    ),
+      padding: EdgeInsets.only(
+        top: 14,
+      ),
       width: double.infinity,
       height: 205,
       child: Column(
@@ -45,7 +45,7 @@ class BrandDetails extends StatelessWidget {
                                     fit: BoxFit.fill)),
                           ),
                           SizedBox(
-                            width: 11,
+                            width: 12,
                           ),
                           Text(
                             name,
@@ -86,6 +86,13 @@ class BrandDetails extends StatelessWidget {
                           onTap: () {},
                           child: Container(
                             decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0xFF000000),
+                                    blurRadius: 2,
+                                    offset: Offset(1, 3),
+                                  )
+                                ],
                                 borderRadius: BorderRadius.circular(5),
                                 color: Color(0xFFF5F5F5)),
                             width: MediaQuery.of(context).size.width * 0.33,
@@ -141,42 +148,46 @@ class BrandDetails extends StatelessWidget {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    productsOfBrand[index]
-                                                        .name,
+                                                    productsOfBrand[index].name,
                                                     style: TextStyle(
-                                                      fontFamily: 'Roboto Condensed',
-                                                      fontWeight: FontWeight.w400 ,
+                                                        fontFamily:
+                                                            'Roboto Condensed',
+                                                        fontWeight:
+                                                            FontWeight.w400,
                                                         fontSize: 12),
                                                   ),
                                                   productsOfBrand[index]
                                                               .discountPrice ==
                                                           0
                                                       ? Text(
-                                                          productsOfBrand[
-                                                                  index]
+                                                          productsOfBrand[index]
                                                               .price
                                                               .toString(),
                                                           style: TextStyle(
-                                                             fontFamily: 'Montserrat',
-                                                                 fontWeight:FontWeight.w500 ,
+                                                              fontFamily:
+                                                                  'Montserrat',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
                                                               fontSize: 12),
                                                         )
                                                       : Row(
-                                                        
                                                           children: [
                                                             Text(
-                                                              ( productsOfBrand[
-                                                                          index]
-                                                                      .price-productsOfBrand[
-                                                                      index]
-                                                                  .discountPrice)
+                                                              (productsOfBrand[
+                                                                              index]
+                                                                          .price -
+                                                                      productsOfBrand[
+                                                                              index]
+                                                                          .discountPrice)
                                                                   .toString(),
                                                               style: TextStyle(
-                                                                 fontFamily: 'Montserrat',
-                                                                 fontWeight:FontWeight.w500 ,
-                                                               
-                                                                  fontSize:
-                                                                      12),
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontSize: 12),
                                                             ),
                                                             SizedBox(
                                                               width: 2,
@@ -187,12 +198,17 @@ class BrandDetails extends StatelessWidget {
                                                                   .price
                                                                   .toString(),
                                                               style: TextStyle(
-                                                                color: Colors.red,
-                                                                 decoration: TextDecoration.lineThrough,
-                                                                 fontFamily: 'Montserrat',
-                                                                 fontWeight:FontWeight.w300 ,
-                                                                  fontSize:
-                                                                      10),
+                                                                  color: Colors
+                                                                      .red,
+                                                                  decoration:
+                                                                      TextDecoration
+                                                                          .lineThrough,
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                  fontSize: 10),
                                                             ),
                                                           ],
                                                         ),
@@ -209,6 +225,8 @@ class BrandDetails extends StatelessWidget {
                                                 height: 13,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFFB600),
+                                                   borderRadius:
+                                              BorderRadius.circular(2),
                                                 ),
                                                 child: Container(
                                                   margin: EdgeInsets.all(3.0),
@@ -233,8 +251,7 @@ class BrandDetails extends StatelessWidget {
                                                         style: TextStyle(
                                                           color: Colors.white,
                                                           fontSize: 8,
-                                                          fontFamily:
-                                                              'Roboto',
+                                                          fontFamily: 'Roboto',
                                                           fontWeight:
                                                               FontWeight.w700,
                                                         ),

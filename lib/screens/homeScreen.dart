@@ -59,12 +59,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 44.0,
                   width: double.infinity,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                          height: 44.0,
+                        //  height: 44.0,
                           width: MediaQuery.of(context).size.width * 0.75,
-                          child: ListView.builder(
+                          child: ListView.separated(
+                              separatorBuilder: (context, index) =>SizedBox(width: 10.5,),
                               itemCount: null == _brands ? 0 : 5,
                               scrollDirection: Axis.horizontal,
                               physics: NeverScrollableScrollPhysics(),
@@ -75,20 +76,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                   profilePicture: brandPicture.profilePicture,
                                 );
                               })),
-                      Container(
-                        height: 32,
-                        width: 2,
-                        child: VerticalDivider(
-                          thickness: 2,
+                      Padding(
+                        padding: const EdgeInsets.only(right: 11),
+                        child: Container(
+                          height: 32,
+                          width: 0,
+                          child: VerticalDivider(
+                            thickness: 2,
+                          ),
                         ),
                       ),
-                      SizedBox(),
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.12,
+                        width: 44,
+                        // MediaQuery.of(context).size.width * 0.12,
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                              color: Color(0xFF000000),
+                              color: Colors.black12,
                               blurRadius: 6,
                               offset: Offset(0, 3),
                             )
@@ -132,12 +136,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(left: 16, right: 16),
-                padding: EdgeInsets.only(bottom: 2),
-                height: 112,
-                width: double.infinity,
-                color: Colors.blue,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 2,left: 16,right: 16),
+                child: Container(
+                  height: 112,
+                  width: double.infinity,
+                  color: Colors.blue,
+                ),
               ),
             ],
           ),

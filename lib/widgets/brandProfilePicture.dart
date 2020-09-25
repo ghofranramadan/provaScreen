@@ -7,29 +7,20 @@ class BrandProfilePicture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Row(
-        children: [
-          Container(
-            width: 44,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0xFF000000),
-                    blurRadius: 3,
-                    offset: Offset(0, 3),
-                  )
-                ],
-                borderRadius: BorderRadius.circular(6),
-                image: DecorationImage(
-                    image: NetworkImage(profilePicture), fit: BoxFit.fill)),
-          ),
-          SizedBox(
-            width: 12,
-          )
-        ],
-      ),
+    return Container(
+      width: 44,
+      height: 44,
+      decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black,
+              blurRadius: 3,
+              offset: Offset(0, 3),
+            )
+          ],
+          borderRadius: BorderRadius.circular(6),
+          image: DecorationImage(
+              image: NetworkImage(profilePicture), fit: BoxFit.fill)),
     );
   }
 }
